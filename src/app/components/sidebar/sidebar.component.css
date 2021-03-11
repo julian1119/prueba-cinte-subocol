@@ -1,0 +1,7 @@
+.sidebar .logo {
+    padding: 25px 0px;
+    margin: 0;
+    display: block;
+    position: relative;
+    z-index: 4;
+}

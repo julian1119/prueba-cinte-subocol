@@ -1,0 +1,157 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9 col-md-10 col-sm-10">
+                <div class="card card-stats">
+                    <div class="card-body">
+                        <div>
+                            <img src="/assets/img/map.PNG" width="95%">
+                        </div>
+                        <div style="background-color: #00c853">
+                            <p-chart type="line" [data]="basicData" [options]="basicOptions"></p-chart>
+                        </div>
+                        <div>
+                            <p-table [value]="arrayInfo">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Proyecto</th>
+                                        <th>Equipo</th>
+                                        <th>Costo Proyecto</th>
+                                        <th>Estado</th>
+                                        <th>Pago</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-car>
+                                    <tr>
+                                        <td>{{car.codigo}}</td>
+                                        <td>{{car.proyecto}}</td>
+                                        <td>{{car.equipo}}</td>
+                                        <td>{{car.costo}}</td>
+                                        <td>{{car.estado}}</td>
+                                        <td>{{car.pago}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2 col-sm-2">
+                <div class="card card-stats">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="dailySalesChart"> Datos</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-sm-12" [formGroup]="form">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            Temperatura principal C
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" pInputText class="anchoInput"
+                                                   formControlName="temperaturaPrincipalInicial">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label>to</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" pInputText class="anchoInput"
+                                                   formControlName="temperaturaPrincipalFinal">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" [formGroup]="form">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            BTD, C
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" pInputText class="anchoInput"
+                                                   formControlName="DTBInicial">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label>to</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="number" pInputText class="anchoInput"
+                                                   formControlName="DTBFinal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" [formGroup]="form">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                Placa
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" pInputText
+                                                       formControlName="placa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" [formGroup]="form">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                Nombre Taller
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" pInputText
+                                                       formControlName="nombreTaller">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" [formGroup]="form">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                Numero Siniestro
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" pInputText
+                                                       formControlName="NSiniestro">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" [formGroup]="form">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                Pais
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <p-dropdown [options]="infoDropdwn" [filter]="true"
+                                                            formControlName="pais"></p-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" [formGroup]="form">
+                                    <p-checkbox [formControl]="form.controls['carroCompras']" label="Carro de compras"
+                                                [binary]="true"></p-checkbox>
+                                    <p-checkbox [formControl]="form.controls['manoObra']" label="Mano de obra"
+                                                [binary]="true"></p-checkbox>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button pButton type="button" class="p-buttonCancelar" label="Cancelar"></button>
+                                <button pButton type="button" class="p-buttonPrincipal" label="Guardar"
+                                        (click)="formValue()" [disabled]="!form.valid"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast position="top-center" ></p-toast>

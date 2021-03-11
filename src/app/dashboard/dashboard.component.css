@@ -1,0 +1,25 @@
+.card-image {
+    padding: 0 ;
+    position: relative ;
+}
+
+.card-stats .card-body {
+    text-align: left;
+    padding-left: 0px;
+}
+
+.p-buttonPrincipal {
+    background: #0d89ec;
+    color: #ffffff;
+    border-color: #0d89ec;
+}
+
+.p-buttonCancelar {
+    background: #FFFFFF;
+    color: #0d89ec;
+    border-color: #0d89ec;
+}
+
+.anchoInput{
+    width: 60px
+}
